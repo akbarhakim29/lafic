@@ -1,0 +1,6 @@
+@charset "utf-8";
+#scroll2 {height: 450px; margin-bottom:32px; overflow:auto;}
+#scroll5 {height: 500px; margin-bottom:32px; overflow:auto;}
+#colorLost{color:#F30;}
+#colorFound{color:#090;}
+#drop  {margin:0;width:540px;height:18px;background:#fff;border:1px solid #e5e4e3;padding:5px 14px;color:#a6a6a6;font:14px Arial, Helvetica, sans-serif}

@@ -1,0 +1,38 @@
+function AjaxCaller(){
+    var xmlhttp=false;
+    try{
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }catch(e){
+        try{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }catch(E){
+            xmlhttp = false;
+        }
+    }
+
+    if(!xmlhttp && typeof XMLHttpRequest!='undefined'){
+        xmlhttp = new XMLHttpRequest();
+    }
+    return xmlhttp;
+}
+
+function callPage(url, div){
+    ajax=AjaxCaller(); 
+    ajax.open("GET", url, true); 
+    ajax.onreadystatechange=function(){
+        if(ajax.readyState==4){
+            if(ajax.status==200){
+                div.innerHTML = ajax.responseText;
+            }
+        }
+    }
+    ajax.send(null);
+}
+
+function updateMap(latM, longM) {
+ var lat = document.getElementById(latM).value;
+ var lang = document.getElementById(longM).value;
+
+    callPage('admin.php?c=admin&m=updateMaps&lat='+lat+'&'+'lang='+lang ,document.getElementById("maps"));
+    
+}
